@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.LogIn"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#FAFAFA">
+            <Image Source="Logo.jpeg" Margin="50,40,50,30"/>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0,0,0,10" HorizontalOptions="Center">
+                <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
+                    <Label x:Name="Digit0" Text="0" FontSize="50" IsEnabled="False" TextColor="#FAFAFA"/>
+                </Frame>
+                <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
+                    <Label x:Name="Digit1" Text="0" FontSize="50" IsEnabled="False" TextColor="#FAFAFA"/>
+                </Frame>
+                <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
+                    <Label x:Name="Digit2" Text="0" FontSize="50" IsEnabled="False" TextColor="#FAFAFA"/>
+                </Frame>
+                <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
+                    <Label x:Name="Digit3" Text="0" FontSize="50" IsEnabled="true" TextColor="#FAFAFA"/>
+                </Frame>
+                
+            </StackLayout>
+            <Grid Padding="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="1" Clicked="OnButtonClicked" StyleId="1" Grid.Column="0" Grid.Row="0" HeightRequest="100" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+                <Button Text="2" Clicked="OnButtonClicked" StyleId="2" Grid.Column="1" Grid.Row="0" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+                <Button Text="3" Clicked="OnButtonClicked" StyleId="3" Grid.Column="2" Grid.Row="0" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+                <Button Text="4" Clicked="OnButtonClicked" StyleId="4" Grid.Column="0" Grid.Row="1" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+                <Button Text="5" Clicked="OnButtonClicked" StyleId="5" Grid.Column="1" Grid.Row="1" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+                <Button Text="6" Clicked="OnButtonClicked" StyleId="6" Grid.Column="2" Grid.Row="1" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+                <Button Text="7" Clicked="OnButtonClicked" StyleId="7" Grid.Column="0" Grid.Row="2" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+                <Button Text="8" Clicked="OnButtonClicked" StyleId="8" Grid.Column="1" Grid.Row="2" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+                <Button Text="9" Clicked="OnButtonClicked" StyleId="9" Grid.Column="2" Grid.Row="2" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+                <Button Text="0" Clicked="OnButtonClicked" StyleId="0" Grid.Column="1" Grid.Row="3" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+                <Button Text="⬅️" Clicked="OnButtonClicked" StyleId="10" Grid.Column="2" Grid.Row="3" BackgroundColor="#FAFAFA" BorderColor="#777777" BorderWidth="2" TextColor="#777777" FontSize="25"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

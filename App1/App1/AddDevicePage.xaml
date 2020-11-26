@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.AddDevicePage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#FAFAFA">
+            <Image Source="Logo.jpeg" Margin="50,40,50,30"/>
+            <ImageButton Clicked="HomeButtonClicked" Source="HomeButton.png" HeightRequest="96" HorizontalOptions="Center" BackgroundColor="#FAFAFA"/>
+            <Label Text="Apparaat Toevoegen" HorizontalOptions="Center" FontSize="30" TextColor="#0E2071" FontAttributes="Bold"/>
+            
+            <BoxView Style="{StaticResource Separator}" Margin="30,0,30,50" />
+
+            <Button x:Name="ScanBarcodeButton" ContentLayout="bottom,10" FontSize="30" TextTransform="None" Text="Scan Barcode" ImageSource="ScanBarcode.png" Padding="10" Margin="40,0,40,20" BorderColor="#777777" BorderRadius="10" BorderWidth="2" BackgroundColor="#FAFAFA" TextColor="#f8a54a" FontAttributes="Bold"/>
+            <Button x:Name="HandmattigButton" ContentLayout="bottom,10" FontSize="30" TextTransform="None" Text="Handmatig" ImageSource="Handmatig.png" Padding="10" Margin="40,0,40,20" BorderColor="#777777" BorderRadius="10" BorderWidth="2" BackgroundColor="#FAFAFA" TextColor="#f8a54a" FontAttributes="Bold"/>
+
+            <Button x:Name="LogOutButton" Clicked="LogOutClicked"  ContentLayout="right,10" FontSize="40" TextTransform="None" Text="Log uit" ImageSource="LogUit.png" BorderColor="#777777" BorderRadius="10" BorderWidth="2" BackgroundColor="#ffFFFFFF" TextColor="#0E2071" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
