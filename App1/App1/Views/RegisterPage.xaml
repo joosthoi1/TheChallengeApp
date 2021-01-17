@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.RegisterPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="Logo.jpeg" Margin="50,40,50,30"/>
+            <RelativeLayout VerticalOptions="Start">
+                <StackLayout Orientation="Horizontal" RelativeLayout.XConstraint="0" HorizontalOptions="FillAndExpand" RelativeLayout.WidthConstraint="200">
+                    <Label Text="Voornaam:" FontSize="20" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                    <Entry x:Name="voorNaam" FontSize="20" HorizontalOptions="FillAndExpand" Margin="5,0"/>
+                </StackLayout >
+                <StackLayout Orientation="Horizontal" RelativeLayout.XConstraint="200" RelativeLayout.WidthConstraint="210">
+                    <Label Text="Achternaam" FontSize="20" VerticalOptions="Center" TextColor="Black"/>
+                    <Entry x:Name="achterNaam" FontSize="20" HorizontalOptions="FillAndExpand" Margin="5,0"/>
+                </StackLayout>
+            </RelativeLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Postcode:" FontSize="20" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                <Entry x:Name="postcode" FontSize="20" HorizontalOptions="FillAndExpand" Margin="5,0"/>
+            </StackLayout>
+            <RelativeLayout VerticalOptions="Start">
+                <StackLayout Orientation="Horizontal" RelativeLayout.XConstraint="0" HorizontalOptions="FillAndExpand" RelativeLayout.WidthConstraint="300">
+                    <Label Text="Straat:" FontSize="20" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                    <Entry x:Name="straat" FontSize="20" HorizontalOptions="FillAndExpand" Margin="5,0"/>
+                </StackLayout >
+                <StackLayout Orientation="Horizontal" RelativeLayout.XConstraint="300" RelativeLayout.WidthConstraint="110">
+                    <Label Text="No." FontSize="20" VerticalOptions="Center" TextColor="Black"/>
+                    <Entry x:Name="straatNo" FontSize="20" HorizontalOptions="FillAndExpand" Margin="5,0"/>
+                </StackLayout>
+            </RelativeLayout>
+            <StackLayout Orientation="Horizontal" RelativeLayout.XConstraint="300" RelativeLayout.WidthConstraint="110">
+                <Label Text="Geboortedatum:" FontSize="20" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                <DatePicker x:Name="geboorteDatum" Margin="5,0" FontSize="20"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Woonplaats:" FontSize="20" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                <Entry x:Name="wPlaats" FontSize="20" HorizontalOptions="FillAndExpand" Margin="5,0"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Email:" FontSize="20" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                <Entry x:Name="email" FontSize="20" HorizontalOptions="FillAndExpand" Margin="5,0"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Code (4 cijfers):" FontSize="20" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                <Entry x:Name="code0" FontSize="20" MaxLength="4" HorizontalOptions="FillAndExpand" Margin="5,0" IsPassword="True" Keyboard="Numeric"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Herhaal code:" FontSize="20" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                <Entry x:Name="code1" FontSize="20" MaxLength="4" HorizontalOptions="FillAndExpand" Margin="5,0" IsPassword="True" Keyboard="Numeric"/>
+            </StackLayout>
+            <Button Text="Registreer" Clicked="Registratie_Clicked" TextTransform="None" VerticalOptions="EndAndExpand" FontAttributes="Bold" BorderColor="#777777" TextColor="#777777" BorderRadius="10" BorderWidth="2" HorizontalOptions="Fill" FontSize="30" BackgroundColor="#fafafa" Margin="10"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

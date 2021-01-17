@@ -11,15 +11,9 @@
 
             <BoxView Style="{StaticResource Separator}" Margin="30,0,30,0" />
             <StackLayout Orientation="Horizontal" Margin="30,0,40,0">
-                <Picker Title="Schakelaar 1" FontSize="30" TitleColor="#777777" TextColor="#777777">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Schakelaar 1</x:String>
-                            <x:String>Schakelaar 2</x:String>
-                            <x:String>Schakelaar 3</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
+                <Picker x:Name="devicePicker" WidthRequest="200" Title="Schakelaar 1" FontSize="30" TitleColor="#777777" TextColor="#777777">
                 </Picker>
+                <Switch x:Name="deviceToggle" Toggled="switchToggled"/>
                 <ImageButton Source="AddDevice.png" BackgroundColor="#fafafa" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
             <ScrollView Margin="30,0,30,0">

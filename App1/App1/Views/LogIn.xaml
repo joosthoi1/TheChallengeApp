@@ -6,19 +6,27 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="#FAFAFA">
             <Image Source="Logo.jpeg" Margin="50,40,50,30"/>
+            <StackLayout Orientation="Horizontal" RelativeLayout.XConstraint="0" HorizontalOptions="FillAndExpand" RelativeLayout.WidthConstraint="200">
+                <Label Text="email:" FontSize="20" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                <Entry FontSize="20" HorizontalOptions="FillAndExpand" Margin="5,0" x:Name="emailEntry" TextChanged="emailEntry_TextChanged"/>
+            </StackLayout >
+            <StackLayout Orientation="Horizontal" RelativeLayout.XConstraint="0" HorizontalOptions="FillAndExpand" RelativeLayout.WidthConstraint="200">
+                <Label Text="Onthoud email" FontSize="20" VerticalOptions="Center" TextColor="Black" Margin="5,0,0,0"/>
+                <CheckBox Margin="5,0" x:Name="rememberBox" CheckedChanged="rememberBox_CheckedChanged"/>
+            </StackLayout >
             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0,0,0,10" HorizontalOptions="Center">
-                <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
-                    <Label x:Name="Digit0" Text="0" FontSize="50" IsEnabled="False" TextColor="#FAFAFA"/>
-                </Frame>
-                <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
-                    <Label x:Name="Digit1" Text="0" FontSize="50" IsEnabled="False" TextColor="#FAFAFA"/>
-                </Frame>
-                <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
-                    <Label x:Name="Digit2" Text="0" FontSize="50" IsEnabled="False" TextColor="#FAFAFA"/>
-                </Frame>
-                <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
-                    <Label x:Name="Digit3" Text="0" FontSize="50" IsEnabled="true" TextColor="#FAFAFA"/>
-                </Frame>
+            <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
+                <Label x:Name="Digit0" Text="0" FontSize="50" IsEnabled="False" TextColor="#FAFAFA"/>
+            </Frame>
+            <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
+                <Label x:Name="Digit1" Text="0" FontSize="50" IsEnabled="False" TextColor="#FAFAFA"/>
+            </Frame>
+            <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
+                <Label x:Name="Digit2" Text="0" FontSize="50" IsEnabled="False" TextColor="#FAFAFA"/>
+            </Frame>
+            <Frame Padding="4" BorderColor="#777777" BackgroundColor="#FAFAFA">
+                <Label x:Name="Digit3" Text="0" FontSize="50" IsEnabled="true" TextColor="#FAFAFA"/>
+            </Frame>
                 
             </StackLayout>
             <Grid Padding="1">

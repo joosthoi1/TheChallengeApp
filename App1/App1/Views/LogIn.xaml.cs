@@ -21,6 +21,51 @@ namespace App1
             InitializeComponent();
             labels = new List<Label>() { Digit0, Digit1, Digit2, Digit3 };
         }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            string email = "";
+            if (Application.Current.Properties.ContainsKey("email"))
+            {
+                email = Application.Current.Properties["email"] as string;
+            }
+            else
+            {
+                Application.Current.Properties.Add("rememberEmail", "0");
+            }
+            if (Application.Current.Properties.ContainsKey("rememberEmail"))
+            {
+                var rememberEmail = Application.Current.Properties["rememberEmail"] as string;
+                if (rememberEmail == "0")
+                {
+                    rememberBox.IsChecked = false;
+                }
+                else
+                {
+                    rememberBox.IsChecked = true;
+                    emailEntry.Text = email;
+                }
+            }
+            else
+            {
+                if (rememberBox.IsChecked)
+                {
+                    Application.Current.Properties.Add("rememberEmail", "0");
+                }
+                else
+                {
+                    Application.Current.Properties.Add("rememberEmail", "1");
+                }
+            }
+        }
+        private void emailEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Application.Current.Properties["email"] = emailEntry.Text;
+        }
+        private void rememberBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            Application.Current.Properties["rememberEmail"] = rememberBox.IsChecked ? "1" : "0";
+        }
         async void OnButtonClicked(object sender, EventArgs args)
         {
             int buttonNo = Int32.Parse(((Button)sender).StyleId);
@@ -66,6 +111,7 @@ namespace App1
         }
         Boolean CheckPassWord()
         {
+            
             string password = labels[0].Text + labels[1].Text + labels[2].Text + labels[3].Text;
             if (password == correctPassword)
             {
@@ -76,5 +122,7 @@ namespace App1
                 return false;
             }
         }
+
+        
     }
 }
