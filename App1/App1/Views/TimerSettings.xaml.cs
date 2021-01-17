@@ -8,6 +8,7 @@ using Plugin.BLE.Abstractions.Exceptions;
 using Plugin.BLE.Abstractions.Contracts;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Globalization;
 
 namespace App1
 {
@@ -17,13 +18,18 @@ namespace App1
         public TimerSettings()
         {
             InitializeComponent();
+            System.Diagnostics.Debug.WriteLine(deviceToggle.IsToggled);
             devicePicker.ItemsSource = GlobalVariables.deviceList;
             devicePicker.SelectedIndex = 0;
             devicePicker.Title = GlobalVariables.deviceList.Count > 0 ? GlobalVariables.deviceList[0].Name ?? GlobalVariables.deviceList[0].NativeDevice.ToString() : "No devices paired";
             deviceToggle.IsEnabled = GlobalVariables.deviceList.Count > 0;
-            
+
+            System.Diagnostics.Debug.WriteLine(GlobalVariables.deviceList.Count);
+            System.Diagnostics.Debug.WriteLine(GlobalVariables.deviceList.Count > 0);
+
             if (GlobalVariables.deviceList.Count > 0)
             {
+                System.Diagnostics.Debug.WriteLine("Groetjes van Hans AKA Captain 3e Helft");
                 queryOn();
             }
             //deviceToggle.IsToggled
@@ -40,15 +46,10 @@ namespace App1
                 var characteristic1 = await service.GetCharacteristicAsync(Guid.Parse("6e400002-b5a3-f393-e0a9-e50e24dcca9e"));
                 characteristic1.ValueUpdated += async (o, args) =>
                 {
-                    System.Diagnostics.Debug.WriteLine(args.Characteristic.StringValue);
-                    if (args.Characteristic.StringValue == "1\n")
-                    {
-                        deviceToggle.IsToggled = true;
-                    }
-                    else
-                    {
-                        deviceToggle.IsToggled = false;
-                    }
+                    string x = args.Characteristic.StringValue;
+
+                    deviceToggle.IsToggled = true;
+
                     await characteristic1.StopUpdatesAsync();
                     await CrossBluetoothLE.Current.Adapter.DisconnectDeviceAsync(device);
                     return;
