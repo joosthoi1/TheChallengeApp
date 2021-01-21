@@ -11,6 +11,7 @@ namespace App1
     public static class GlobalVariables
     {
         public static List<IDevice> deviceList = new List<IDevice>();
+        public static Registratie user;
     }
     public partial class App : Application
     {
@@ -22,7 +23,12 @@ namespace App1
             {
                 if (database == null)
                 {
+                    string root = null;
+                    //Get the root path in android device.
+
+                    root = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
                     database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"));
+                    System.Diagnostics.Debug.WriteLine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"));
                 }
                 return database;
             }

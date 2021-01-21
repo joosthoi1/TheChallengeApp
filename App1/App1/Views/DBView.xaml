@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.DBView">
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView x:Name="collectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Voornaam}"
+                               FontSize="Small" />
+                            <Label Text="{Binding Achternaam}"
+                               FontSize="Small" />
+                            <Label Text="{Binding Postcode}"
+                               FontSize="Small" />
+                            <Label Text="{Binding Woonplaats}"
+                               FontSize="Small" />
+                            <Label Text="{Binding Geboortedatum}"
+                               FontSize="Small" />
+                            <Label Text="{Binding Emailadres}"
+                               FontSize="Small" />
+                            <Label Text="{Binding Gebruikerscode}"
+                               FontSize="Small" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

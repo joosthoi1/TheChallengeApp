@@ -6,21 +6,23 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="#fafafa">
             <Image Source="Logo.jpeg" Margin="50,40,50,30"/>
-            <ImageButton Source="HomeButton.png" Clicked="HomeButtonClicked" HeightRequest="96" HorizontalOptions="Center" BackgroundColor="#fafafa"/>
+            <ImageButton Source="HomeButton.png" Clicked="HomeButtonClicked" HeightRequest="96" HorizontalOptions="Center" BackgroundColor="#fafafa" />
             <Label Text="Timer Instellingen" HorizontalOptions="Center" FontSize="40" TextColor="#0E2071" FontAttributes="Bold"/>
 
             <BoxView Style="{StaticResource Separator}" Margin="30,0,30,0" />
             <StackLayout Orientation="Horizontal" Margin="30,0,40,0">
-                <Picker x:Name="devicePicker" WidthRequest="200" Title="Schakelaar 1" FontSize="30" TitleColor="#777777" TextColor="#777777">
+                <Picker x:Name="devicePicker" WidthRequest="200" Title="Schakelaar 1" FontSize="30" TitleColor="#777777" TextColor="#777777" SelectedIndexChanged="IndexChanged">
                 </Picker>
                 <Switch x:Name="deviceToggle" Toggled="switchToggled"/>
-                <ImageButton Source="AddDevice.png" BackgroundColor="#fafafa" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                <ImageButton Source="AddDevice.png" BackgroundColor="#fafafa" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Clicked="AddTimer"/>
             </StackLayout>
             <ScrollView Margin="30,0,30,0">
-                <StackLayout>
+                <StackLayout x:Name="timerScrollView">
                     <Frame BorderColor="#777777" BackgroundColor="#FAFAFA">
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="00:00 - 06:00" TextColor="#f8a54a" FontAttributes="Bold" FontSize="30"/>
+                        <StackLayout Orientation="Horizontal" >
+                            <TimePicker TextColor="#f8a54a" FontSize="30" FontAttributes="Bold"/>
+                            <Label Text="-" TextColor="#f8a54a" FontAttributes="Bold" FontSize="30"/>
+                            <TimePicker TextColor="#f8a54a" FontSize="30" FontAttributes="Bold"/>
                             <Switch/>
                         </StackLayout>
                     </Frame>

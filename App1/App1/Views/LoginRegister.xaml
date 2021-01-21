@@ -6,6 +6,7 @@
         <Image Source="Logo.jpeg" Margin="50,40,50,30"/>
         <Label Text="Welkom bij yozare!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="20" TextColor="Black"/>
 
+        <Button Text="view db" Clicked="ViewDbClicked" TextTransform="None" FontAttributes="Bold" BorderColor="#777777" TextColor="#777777" BorderRadius="10" BorderWidth="2" HorizontalOptions="Fill" FontSize="30" BackgroundColor="#fafafa" Margin="10,10"/>
         <Button Text="Registreer" Clicked="RegistreerClicked" TextTransform="None" FontAttributes="Bold" BorderColor="#777777" TextColor="#777777" BorderRadius="10" BorderWidth="2" HorizontalOptions="Fill" FontSize="30" BackgroundColor="#fafafa" Margin="10,0"/>
         <Button Text="Log in" Clicked="LoginClicked" TextTransform="None" FontAttributes="Bold" BorderColor="#777777" TextColor="#777777" BorderRadius="10" BorderWidth="2" HorizontalOptions="Fill" FontSize="30" BackgroundColor="#fafafa" Margin="10"/>
     </StackLayout>

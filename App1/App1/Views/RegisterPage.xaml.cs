@@ -38,13 +38,16 @@ namespace App1
             Registratie r = new Registratie() {
                 Achternaam = achterNaam.Text,
                 Voornaam = voorNaam.Text,
-                Emailadres = email.Text,
+                Emailadres = email.Text.ToLower(),
                 Gebruikerscode = Int32.Parse(code0.Text),
                 Geboortedatum = geboorteDatum.Date,
                 Postcode = postcode.Text,
                 Woonplaats = wPlaats.Text,
             };
             await App.Database.RegisterPerson(r);
+
+            Application.Current.Properties["email"] = email.Text.ToLower();
+            await Navigation.PushAsync(new LogIn());
         }
     }
 }

@@ -31,7 +31,7 @@ namespace App1
             }
             else
             {
-                Application.Current.Properties.Add("rememberEmail", "0");
+                Application.Current.Properties.Add("email", "");
             }
             if (Application.Current.Properties.ContainsKey("rememberEmail"))
             {
@@ -87,7 +87,18 @@ namespace App1
             if (index == 4)
             {
                 System.Diagnostics.Debug.WriteLine("x");
-                if (CheckPassWord())
+                string password = labels[0].Text + labels[1].Text + labels[2].Text + labels[3].Text;
+                bool pwcorrect = false;
+                try  {
+                    pwcorrect = await App.Database.ValidateLogin(emailEntry.Text, Int32.Parse(password));
+                    Registratie user = await App.Database.RegisterQuerry(emailEntry.Text);
+                    GlobalVariables.user = user;
+                } catch
+                {
+
+                }
+                
+                if (pwcorrect)
                 {
                     index = 0;
                     for (int i = 0; i < labels.Count; i++)
@@ -106,6 +117,7 @@ namespace App1
                         labels[i].Text = "0";
                         labels[i].TextColor = Color.FromHex("#FAFAFA");
                     }
+                    await DisplayAlert("Error", "Email or password incorrect", "OK");
                 }
             }
         }

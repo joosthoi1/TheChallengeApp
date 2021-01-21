@@ -15,6 +15,10 @@ namespace App1
         {
             InitializeComponent();
         }
+        private async void ViewDbClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DBView());
+        }
 
         private async void RegistreerClicked(object sender, EventArgs e)
         {

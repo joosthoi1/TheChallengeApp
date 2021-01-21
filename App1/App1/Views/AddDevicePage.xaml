@@ -11,7 +11,7 @@
             
             <BoxView Style="{StaticResource Separator}" Margin="30,0,30,50" />
 
-            <Button x:Name="ScanDevicesButton" Clicked="ScanDevices" ContentLayout="bottom,10" FontSize="30" TextTransform="None" Text="Scan Apparaten" ImageSource="ScanBarcode.png" Padding="10" Margin="40,0,40,20" BorderColor="#777777" BorderRadius="10" BorderWidth="2" BackgroundColor="#FAFAFA" TextColor="#f8a54a" FontAttributes="Bold"/>
+            <Button x:Name="ScanDevicesButton" Clicked="ScanDevices" ContentLayout="bottom,10" FontSize="30" TextTransform="None" Text="Scan Apparaten" ImageSource="ScanBarcode0.png" Padding="10" Margin="40,0,40,20" BorderColor="#777777" BorderRadius="10" BorderWidth="2" BackgroundColor="#FAFAFA" TextColor="#f8a54a" FontAttributes="Bold"/>
             <ScrollView>
                 <StackLayout x:Name="DevicesStack">
                     

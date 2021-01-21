@@ -20,6 +20,11 @@ namespace App1
         {
             InitializeComponent();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ScanDevicesButton.ImageSource = ImageSource.FromFile("ScanBarcode0.png");
+        }
         async void HomeButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HomePage());
@@ -33,6 +38,7 @@ namespace App1
             await Navigation.PushAsync(new GoodBye());
 
         }
+        private static List<Schakelaar> currentSchakelaars;
         async void ScanDevices(object sender, EventArgs e)
         {
             var ble = CrossBluetoothLE.Current;
@@ -47,10 +53,13 @@ namespace App1
             DevicesStack.Children.Clear();
 
             adapter.ScanMode = ScanMode.Balanced;
-            
+
+            currentSchakelaars = await App.Database.GetUserDevices(GlobalVariables.user.idRegistratie);
+            System.Diagnostics.Debug.WriteLine(System.Text.Json.JsonSerializer.Serialize(currentSchakelaars));
+
             adapter.DeviceDiscovered += discoveredDevice;
             await adapter.StartScanningForDevicesAsync();
-
+            adapter.DeviceDiscovered -= discoveredDevice;
             foreach (IDevice device in deviceList)
             {
                 System.Diagnostics.Debug.WriteLine("-");
@@ -64,28 +73,36 @@ namespace App1
             }
             System.Diagnostics.Debug.WriteLine("1");
             System.Diagnostics.Debug.WriteLine(deviceList.Count);
-            
 
+        }
+        protected override async void OnDisappearing()
+        {
+            base.OnDisappearing();
+            var adapter = CrossBluetoothLE.Current.Adapter;
+            await adapter.StopScanningForDevicesAsync();
         }
         async void discoveredDevice(object s, Plugin.BLE.Abstractions.EventArgs.DeviceEventArgs a)
         {
             //BorderColor="#777777" BorderRadius="10" BorderWidth="2" BackgroundColor="#FAFAFA"
-            deviceList.Add(a.Device);
-            Button button = new Button()
+            if (!currentSchakelaars.Any(sc => sc.DeviceGUID == a.Device.Id.ToString()))
             {
-                Text = a.Device.Name ?? a.Device.NativeDevice.ToString(),
-                FontSize = 30,
-                Padding=new Thickness(0,10),
-                Margin=new Thickness(10,0),
-                TextTransform= TextTransform.None,
-                BorderColor=Color.FromHex("#777777"),
-                BorderWidth=2,
-                BackgroundColor= Color.FromHex("#FAFAFA"),
-                CornerRadius=2,
-                TextColor=Color.FromHex("#f8a54a")
-            };
-            button.Clicked += (z, x) => DeviceButtonClicked(z, x, a.Device);
-            DevicesStack.Children.Add(button);
+                deviceList.Add(a.Device);
+                Button button = new Button()
+                {
+                    Text = a.Device.Name ?? a.Device.NativeDevice.ToString(),
+                    FontSize = 30,
+                    Padding = new Thickness(0, 10),
+                    Margin = new Thickness(10, 0),
+                    TextTransform = TextTransform.None,
+                    BorderColor = Color.FromHex("#777777"),
+                    BorderWidth = 2,
+                    BackgroundColor = Color.FromHex("#FAFAFA"),
+                    CornerRadius = 2,
+                    TextColor = Color.FromHex("#f8a54a")
+                };
+                button.Clicked += (z, x) => DeviceButtonClicked(z, x, a.Device);
+                DevicesStack.Children.Add(button);
+            }
         }
         async void DeviceButtonClicked(object sender, EventArgs a, IDevice device)
         {
@@ -95,9 +112,18 @@ namespace App1
                 await CrossBluetoothLE.Current.Adapter.ConnectToDeviceAsync(device);
                 await CrossBluetoothLE.Current.Adapter.DisconnectDeviceAsync(device);
                 GlobalVariables.deviceList.Add(device);
+                var s = new Schakelaar
+                {
+                    DeviceGUID = device.Id.ToString(),
+                    UserId = GlobalVariables.user.idRegistratie,
+                    Name = device.Name
+                };
+                await App.Database.AddDevice(s);
+                await DisplayAlert("Success", "Device added.", "OK");
             }
             catch (DeviceConnectionException e)
             {
+                await DisplayAlert("Error", "Could not connect to device.", "OK");
                 // ... could not connect to device
             }
             /*

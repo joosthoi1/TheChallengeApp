@@ -8470,7 +8470,16 @@ namespace App1.Droid
 			public const int abc_config_actionMenuItemAllCaps = 2130968578;
 			
 			// aapt resource value: 0x7F040003
-			public const int mtrl_btn_textappearance_all_caps = 2130968579;
+			public const int enable_system_alarm_service_default = 2130968579;
+			
+			// aapt resource value: 0x7F040004
+			public const int enable_system_job_service_default = 2130968580;
+			
+			// aapt resource value: 0x7F040005
+			public const int mtrl_btn_textappearance_all_caps = 2130968581;
+			
+			// aapt resource value: 0x7F040006
+			public const int workmanager_test_configuration = 2130968582;
 			
 			static Boolean()
 			{
@@ -9937,19 +9946,25 @@ namespace App1.Droid
 			public const int notify_panel_notification_icon_bg = 2131165307;
 			
 			// aapt resource value: 0x7F07007C
-			public const int ScanBarcode = 2131165308;
+			public const int SaveButton = 2131165308;
 			
 			// aapt resource value: 0x7F07007D
-			public const int TimerList = 2131165309;
+			public const int ScanBarcode = 2131165309;
 			
 			// aapt resource value: 0x7F07007E
-			public const int TimerSettings = 2131165310;
+			public const int ScanBarcode0 = 2131165310;
 			
 			// aapt resource value: 0x7F07007F
-			public const int tooltip_frame_dark = 2131165311;
+			public const int TimerList = 2131165311;
 			
 			// aapt resource value: 0x7F070080
-			public const int tooltip_frame_light = 2131165312;
+			public const int TimerSettings = 2131165312;
+			
+			// aapt resource value: 0x7F070081
+			public const int tooltip_frame_dark = 2131165313;
+			
+			// aapt resource value: 0x7F070082
+			public const int tooltip_frame_light = 2131165314;
 			
 			static Drawable()
 			{

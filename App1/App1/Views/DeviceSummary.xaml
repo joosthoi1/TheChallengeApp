@@ -13,7 +13,7 @@
             <BoxView Style="{StaticResource Separator}" Margin="30,0,30,0" />
 
             <ScrollView VerticalOptions="FillAndExpand" Margin="20,0">
-                <StackLayout>
+                <StackLayout x:Name="SlListView">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                         <CheckBox VerticalOptions="Center"/>
                         <Label Text="Schakelaar 1" FontSize="30" VerticalOptions="Center" FontAttributes="Bold" TextColor="#777777"/>
